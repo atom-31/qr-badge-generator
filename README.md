@@ -11,46 +11,39 @@ You will need the following things properly installed on your computer.
 - [Node.js](https://nodejs.org/) (with npm)
 - [Ember CLI](https://cli.emberjs.com/release/)
 - [Google Chrome](https://google.com/chrome/)
+- [Tailwind CSS](https://tailwindcss.com/docs/guides/emberjs)
 
 ## Installation
 
 - `git clone <repository-url>` this repository
 - `cd qr-app`
 - `npm install`
+  
+## Install Tailwind
+- `npm install -D tailwindcss postcss autoprefixer`
+# or
+- `yarn add -D tailwindcss postcss autoprefixer`
+  
+##Generate Tailwind Configuration Files:
+- `npx tailwindcss init -p`
 
+##Configure Tailwind CSS:
+Open tailwind.config.js and configure it to purge unused styles in production:
+- `module.exports = {
+  purge: ['./app/**/*.hbs', './app/**/*.js'],
+  darkMode: false, // or 'media' or 'class'
+  theme: {
+    extend: {},
+  },
+  variants: {
+    extend: {},
+  },
+  plugins: [],
+}
+`
 ## Running / Development
 
 - `npm run start`
 - Visit your app at [http://localhost:4200](http://localhost:4200).
-- Visit your tests at [http://localhost:4200/tests](http://localhost:4200/tests).
 
-### Code Generators
 
-Make use of the many generators for code, try `ember help generate` for more details
-
-### Running Tests
-
-- `npm run test`
-- `npm run test:ember -- --server`
-
-### Linting
-
-- `npm run lint`
-- `npm run lint:fix`
-
-### Building
-
-- `npm exec ember build` (development)
-- `npm run build` (production)
-
-### Deploying
-
-Specify what it takes to deploy your app.
-
-## Further Reading / Useful Links
-
-- [ember.js](https://emberjs.com/)
-- [ember-cli](https://cli.emberjs.com/release/)
-- Development Browser Extensions
-  - [ember inspector for chrome](https://chrome.google.com/webstore/detail/ember-inspector/bmdblncegkenkacieihfhpjfppoconhi)
-  - [ember inspector for firefox](https://addons.mozilla.org/en-US/firefox/addon/ember-inspector/)
