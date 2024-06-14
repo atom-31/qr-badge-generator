@@ -24,12 +24,13 @@ You will need the following things properly installed on your computer.
 # or
 - `yarn add -D tailwindcss postcss autoprefixer`
   
-##Generate Tailwind Configuration Files:
+## Generate Tailwind Configuration Files:
 - `npx tailwindcss init -p`
 
-##Configure Tailwind CSS:
+## Configure Tailwind CSS:
 Open tailwind.config.js and configure it to purge unused styles in production:
-- `module.exports = {
+- ```
+  module.exports = {
   purge: ['./app/**/*.hbs', './app/**/*.js'],
   darkMode: false, // or 'media' or 'class'
   theme: {
@@ -40,7 +41,7 @@ Open tailwind.config.js and configure it to purge unused styles in production:
   },
   plugins: [],
 }
-`
+
 ## Running / Development
 
 - `npm run start`
