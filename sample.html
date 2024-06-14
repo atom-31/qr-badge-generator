@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>QR Code Styling</title>
+    <script type="text/javascript" src="https://unpkg.com/qr-code-styling@1.5.0/lib/qr-code-styling.js"></script>
+    <style>
+        .qr-container {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+<div id="canvas1" class="qr-container"></div>
+<div id="canvas2" class="qr-container"></div>
+<div id="canvas3" class="qr-container"></div>
+<div id="canvas4" class="qr-container"></div>
+<div id="canvas5" class="qr-container"></div>
+
+<script type="text/javascript">
+
+// const qrCode = new QRCodeStyling({
+//         width: 500,
+//         height: 500,
+//         type: "svg",
+//         data: "https://www.example5.com/",
+//         image: "",
+//         dotsOptions: {
+//             color: "#000000",
+//             type: "square",
+//             gradient: {
+//                 type: "linear",
+//                 rotation: 0,
+//                 colorStops: [
+//                     { offset: 0, color: "#000000" },
+//                     { offset: 1, color: "#555555" }
+//                 ],
+//             },
+//         },
+//         backgroundOptions: {
+//             color: "#ffffff",
+//         },
+//         imageOptions: {
+//             crossOrigin: "anonymous",
+//             margin: 10,
+//             hideBackgroundDots: false
+//         },
+//         cornersSquareOptions:{
+//             type: "square",
+//             color: "#000000",
+//         },
+//         cornersDotOptions:{
+//             type: "square",
+//             color: "#555555",
+//         }
+//     });
+
+// const qrCode = new QRCodeStyling({
+//         width: 500,
+//         height: 500,
+//         type: "svg",
+//         data: "https://www.example4.com/",
+//         dotsOptions: {
+//             color: "#4CAF50",
+//             type: "classy-rounded",
+//             gradient: {
+//                 type: "linear",
+//                 rotation: Math.PI / 2,
+//                 colorStops: [
+//                     { offset: 0, color: "#4CAF50" },
+//                     { offset: 1, color: "#8BC34A" }
+//                 ],
+//             },
+//         },
+//         backgroundOptions: {
+//             color: "#ffffff",
+//         },
+//         cornersSquareOptions:{
+//             type: "classy",
+//             color: "#4CAF50",
+//         },
+//         cornersDotOptions:{
+//             type: "classy-rounded",
+//             color: "#8BC34A",
+//         },
+//     });
+
+
+// const qrCode = new QRCodeStyling({
+//         width: 500,
+//         height: 500,
+//         type: "svg",
+//         data: "https://www.example3.com/",
+//         dotsOptions: {
+//             color: "#39C0FE",
+//             type: "extra-rounded",
+//             gradient: {
+//                 type: "radial",
+//                 colorStops: [
+//                     { offset: 0, color: "#39C0FE" },
+//                     { offset: 1, color: "#4BFFFE" }
+//                 ]
+//             }
+//         },
+//         backgroundOptions: {
+//             color: "#F0F8FF",
+//         },
+//         cornersSquareOptions:{
+//             type: "extra-rounded",
+//             color: "#39C0FE",
+//         },
+//         cornersDotOptions:{
+//             type: "extra-rounded",
+//             color: "#4BFFFE",
+//         },
+//     });
+
+    // const qrCode = new QRCodeStyling({
+    //     width: 500,
+    //     height: 500,
+    //     type: "svg",
+    //     data: "https://www.example2.com/",
+    //     dotsOptions: {
+    //         color: "#E62622",
+    //         type: "dots",
+    //         gradient: {
+    //             type: "linear",
+    //             rotation: Math.PI,
+    //             colorStops: [
+    //                 { offset: 0, color: "#E62622" },
+    //                 { offset: 1, color: "#FF5733" }
+    //             ],
+    //         },
+    //     },
+    //     backgroundOptions: {
+    //         color: "#ffffff",
+    //     },
+    //     cornersSquareOptions: {
+    //         type: "square",
+    //         color: "#FF5733",
+    //     },
+    //     cornersDotOptions: {
+    //         type: "square",
+    //         color: "#E62622",
+    //     }
+    // });
+
+//   const qrCode = new QRCodeStyling({
+//         width: 500,
+//         height: 500,
+//         type: "svg",
+//         data: "https://www.example1.com/",
+//         image: "https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg",
+//         dotsOptions: {
+//             color: "#4267b2",
+//             type: "rounded",
+//             gradient: {
+//                 type: "linear",
+//                 rotation: Math.PI / 4,
+//                 colorStops: [
+//                     { offset: 0, color: "#4267b2" },
+//                     { offset: 1, color: "#89CFF0" }
+//                 ],
+//             },
+//         },
+//         backgroundOptions: {
+//             color: "#e9ebee",
+//         },
+//         imageOptions: {
+//             crossOrigin: "anonymous",
+//             margin: 20
+//         },
+//         cornersSquareOptions: {
+//             type: "dot",
+//             color: "#4267b2",
+//             gradient: {
+//                 type: "radial",
+//                 colorStops: [
+//                     { offset: 0, color: "#89CFF0" },
+//                     { offset: 1, color: "#4267b2" }
+//                 ]
+//             }
+//         },
+//         cornersDotOptions: {
+//             type: "dot",
+//             color: "#4267b2",
+//         }
+//     });
+
+    // const qrCode = new QRCodeStyling({
+    //     width: 500,
+    //     height: 500,
+    //     type: "svg",
+    //     data: "https://www.example.com/",
+    //     image: "https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg",
+    //     dotsOptions: {
+    //         color: "#4267b2",
+    //         type: "rounded"
+    //     },
+    //     backgroundOptions: {
+    //         color: "#e9ebee",
+    //     },
+    //     imageOptions: {
+    //         crossOrigin: "anonymous",
+    //         margin: 20
+    //     }
+    // });
+
+    // const qrCode = new QRCodeStyling({
+    //     width: 500,
+    //     height: 500,
+    //     type: "svg",
+    //     data: "https://www.example.com/",
+    //     qrOptions: {
+    //         typeNumber: "0",
+    //         errorCorrectionLevel: "H",
+    //     },
+    //     dotsOptions: {
+    //         color: "#E62622",
+    //         type: "dots",
+    //         gradient: {
+    //             type: "radial",
+    //             rotation: 0,
+    //             colorStops: [
+    //                 { offset: 0, color: "#E62622" },
+    //                 { offset: 1, color: "#FF5733" }
+    //             ],
+    //         },
+    //     },
+    //     backgroundOptions: {
+    //         color: "#ffffff",
+    //     }
+    // });
+
+    // const qrCode = new QRCodeStyling({
+    //     width: 500,
+    //     height: 500,
+    //     type: "svg",
+    //     data: "https://www.example.com/",
+    //     dotsOptions: {
+    //         color: "#39C0FE",
+    //         type: "extra-rounded"
+    //     },
+    //     backgroundOptions: {
+    //         color: "#F0F8FF",
+    //     },
+    //     cornersSquareOptions:{
+    //         type: "extra-rounded",
+    //     },
+    //     cornersDotOptions:{
+    //         type: "dot",
+    //     },
+    // });
+
+    // const qrCode = new QRCodeStyling({
+    //     width: 500,
+    //     height: 500,
+    //     type: "svg",
+    //     data: "https://www.example.com/",
+    //     dotsOptions: {
+    //         color: "#4CAF50",
+    //         type: "classy-rounded",
+    //         gradient: {
+    //             type: "linear",
+    //             rotation: Math.PI / 4,
+    //             colorStops: [
+    //                 { offset: 0, color: "#4CAF50" },
+    //                 { offset: 1, color: "#8BC34A" }
+    //             ],
+    //         },
+    //     },
+    //     backgroundOptions: {
+    //         color: "#ffffff",
+    //     },
+    // });
+
+    const qrCode = new QRCodeStyling({
+        width: 500,
+        height: 500,
+        type: "svg",
+        data: "https://www.example.com/",
+        image: "",
+        dotsOptions: {
+            color: "#000000",
+            type: "square"
+        },
+        backgroundOptions: {
+            color: "#ffffff",
+        },
+        imageOptions: {
+            crossOrigin: "anonymous",
+            margin: 10,
+            hideBackgroundDots: false
+        }
+    });
+
+
+    // Append all QR codes to their respective canvas containers
+    qrCode.append(document.getElementById("canvas1"));
+
+
+    // Download all QR codes
+    //qrCode.download({ name: "qr1", extension: "png" });
+</script>
+</body>
+</html>

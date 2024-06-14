@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>QR Code Styling</title>
+    <script type="text/javascript" src="https://unpkg.com/qr-code-styling@1.5.0/lib/qr-code-styling.js"></script>
+</head>
+<body>
+<div id="canvas"></div>
+<script type="text/javascript">
+    const qrCode = new QRCodeStyling({
+        width: 500,
+        height: 500,
+        type: "png",
+        data: "",
+        image: "", // Replace with your image URL
+        margin: 20,
+        qrOptions: {
+            typeNumber: "0",
+            errorCorrectionLevel: "L",
+        },
+        dotsOptions: {
+            color: "#39C0FE",
+            type: "rounded",
+        },
+        backgroundOptions: {
+            color: "#FFFFFF",
+        },
+        imageOptions: {
+            crossOrigin: "anonymous",
+            hideBackgroundDots: true, // Optional: Hide background dots behind the image
+            imageSize: 0.4, // Optional: Adjust image size relative to the QR code
+        },
+        cornersSquareOptions:{
+            type: "extra-rounded",
+        },
+        cornersDotOptions:{
+            type: "extra-rounded",
+        },
+    });
+
+    // Function to calculate the appropriate typeNumber based on data length and encoding mode
+    function getTypeNumber(data, errorCorrectionLevel) {
+        const qr = new QRCodeStyling({
+            data: data,
+            qrOptions: {
+                errorCorrectionLevel: errorCorrectionLevel
+            }
+        });
+        for (let version = 1; version <= 40; version++) {
+            try {
+                qr.update({
+                    qrOptions: {
+                        typeNumber: version
+                    }
+                });
+                return version;
+            } catch (e) {
+                // Ignore and try next version
+            }
+        }
+        return 40; // Maximum version if no suitable version found
+    }
+
+    // Function to update QR code
+    function updateQRCode(data) {
+        const errorCorrectionLevel = "L"; // Define your error correction level
+        const typeNumber = getTypeNumber(data, errorCorrectionLevel);
+        console.log("Type number: " + typeNumber);
+
+        qrCode.update({
+            data: data,
+            qrOptions: {
+                typeNumber: typeNumber,
+                errorCorrectionLevel: errorCorrectionLevel,
+            }
+        });
+    }
+
+    // Example usage
+    const data = "https://www.google.com/";
+    updateQRCode(data);
+
+    qrCode.append(document.getElementById("canvas"));
+
+</script>
+</body>
+</html>

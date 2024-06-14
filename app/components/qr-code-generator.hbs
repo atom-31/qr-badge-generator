@@ -1,0 +1,58 @@
+<div class="p-4 flex flex-col items-center justify-center">
+  <h1 class="text-2xl font-bold text-center mb-4">QR Code Generator</h1>
+  <div class="flex flex-row gap-10"> 
+    <div class="space-y-2 mt-3 flex flex-col w-fit">
+      <div class="space-y-2">
+        <label for="text-input" class="block font-semibold">Enter URL:</label>
+        <textarea
+          id="text-input"
+          placeholder="https://www.zoho.com/backstage/"
+          name="textInput"
+          class="w-full p-2 border rounded-xl shadow-lg"
+          {{on "input" this.handleInputChange}}
+          {{did-insert this.generateQRCode}}
+        ></textarea>
+      </div>
+      <div class="space-y-2 mt-3">
+        <label for="image-input" class="block font-semibold">Upload Logo:</label>
+        <input
+          type="file"
+          id="image-input"
+          class="w-full p-2 border rounded-xl shadow-lg"
+          {{on "change" this.handleImageUpload}}
+        />
+      </div>
+      <div class="space-y-2 mt-3 flex flex-col ">
+        <label for="favcolor" class="block font-semibold">Select your favorite color:</label>
+        <input type="color" id="favcolor" value={{this.dotcolor}} {{on "change" this.handleColorChange}}>
+      </div>
+      <div class="flex gap-3 mt-4 max-lg:flex-col">
+        <button
+          type="button"
+          class="w-fit h-fit text-white font-semibold p-2 rounded-xl shadow-lg {{if (eq this.selectedStyle "style1") 'border border-black'}}"
+          {{on "click" this.style1}}
+        >
+          <img src="assets/images/style1.png" alt="Style 1" class="h-32 w-32" />
+        </button>
+        <button
+          type="button"
+          class="w-fit h-fit text-white font-semibold p-2 rounded-xl shadow-lg {{if (eq this.selectedStyle "style2") 'border border-black'}}"
+          {{on "click" this.style2}}
+        >
+          <img src="assets/images/style2.png" alt="Style 2" class="h-32 w-32" />
+        </button>
+        <button
+          type="button"
+          class="w-fit h-fit text-white font-semibold p-2 rounded-xl shadow-lg {{if (eq this.selectedStyle "style3") 'border border-black'}}"
+          {{on "click" this.style3}}
+        >
+          <img src="assets/images/style3.png" alt="Style 2" class="h-32 w-32" />
+        </button>
+      </div>
+    </div>
+    <div class="space-y-2">
+      <label class="block font-semibold">QR Code:</label>
+      <div id="canvas" class="rounded-xl flex justify-center border shadow-lg w-fit h-fit" ></div>
+    </div>
+  </div>
+</div>
