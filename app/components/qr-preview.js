@@ -3,7 +3,7 @@ import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 import QRCodeStyling from 'qr-code-styling';
 
-export default class QrCodeGeneratorComponent extends Component {
+export default class QrPreviewComponent extends Component {
   qrCode = null;
 
   @tracked initialized = false;
@@ -15,9 +15,9 @@ export default class QrCodeGeneratorComponent extends Component {
 
   initializeQRCode() {
     this.qrCode = new QRCodeStyling({
-      width: 500 || this.args.width,
-      height: 500 || this.args.height,
-      type: 'svg' || this.args.image_type,
+      width: 140 || this.args.width,
+      height: 140 || this.args.height,
+      type: 'canvas' || this.args.image_type,
       data: this.args.data || 'https://www.zoho.com/backstage/',
       image: this.args.image || '',
       margin: 10,
@@ -29,7 +29,7 @@ export default class QrCodeGeneratorComponent extends Component {
         color: this.args.dotcolor || '#000000',
         type: this.args.type || 'square',
         gradient: {
-          type: 'linear',
+          type: 'radial',
           rotation: 0,
           colorStops: [
             { offset: 0, color: this.args.colorStops0 || '#000000' },
@@ -88,7 +88,7 @@ export default class QrCodeGeneratorComponent extends Component {
           color: this.args.dotcolor,
           type: this.args.type,
           gradient: {
-            type: 'linear',
+            type: 'radial',
             rotation: 0,
             colorStops: [
               { offset: 0, color: this.args.colorStops0 },
@@ -118,13 +118,5 @@ export default class QrCodeGeneratorComponent extends Component {
       this.initializeQRCode();
       this.qrCode.append(element);
     }
-  }
-
-  @action
-  downloadQRCode() {
-    this.qrCode.download({
-      name: 'qr-code',
-      extension: 'svg',
-    });
   }
 }

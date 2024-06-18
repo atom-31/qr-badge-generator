@@ -1,1 +1,79 @@
-<QrCodeGenerator />
+<div class="p-4 flex flex-col items-center justify-center">
+  <h1 class="text-2xl font-bold text-center mb-4">QR Code Generator</h1>
+  <div class="flex flex-row gap-10">
+    <div class="space-y-2 mt-3 flex flex-col w-fit">
+      <div class="space-y-2">
+        <label for="text-input" class="block font-semibold">Enter URL:</label>
+        <textarea
+          id="text-input"
+          placeholder="https://www.zoho.com/backstage/"
+          name="textInput"
+          class="w-full p-2 border rounded-xl shadow-lg"
+          {{on "input" this.handleInputChange}}
+        ></textarea>
+      </div>
+      <div class="space-y-2 mt-3">
+        <label for="image-input" class="block font-semibold">Upload Logo:</label>
+        <input
+          type="file"
+          id="image-input"
+          class="w-full p-2 border rounded-xl shadow-lg"
+          {{on "change" this.handleImageUpload}}
+        />
+      </div>
+      <div class="space-y-2 mt-3 flex flex-col">
+        <label for="favcolor" class="block font-semibold">Select your Favorite color:</label>
+        <input type="color" id="favcolor" value={{this.dotcolor}} {{on "change" this.handleColorChange}}>
+      </div>
+      <div class="space-y-2 mt-3 flex flex-col">
+            <label for="favcolor" class="block font-semibold">Select your Gradient Color:</label>
+            <div class="flex flex-row gap-3">
+            <input type="color" id="colorzero" value={{this.colorStops0}} {{on "change" this.handleGradientZero}}>
+            <input type="color" id="colorone" value={{this.colorStops1}} {{on "change" this.handleGradientOne}}>
+            </div>
+      </div>
+      <div class="flex gap-3 mt-4 max-lg:flex-col">
+        {{#each this.styleList as |style|}}
+          <button
+            type="button"
+            class="w-34 h-34 text-black flex justify-center items-center font-semibold rounded-xl overflow-hidden shadow-lg {{if (eq this.selectedStyle style.name) 'border border-black rounded-xl'}}"
+            {{on "click" (fn this.applyStyle style.name)}}
+          >
+            <QrPreview
+              @data={{this.data}}
+              @image={{this.image}}
+              @dotcolor={{get (get this.styles style.name) "dotcolor"}}
+              @type={{get (get this.styles style.name) "type"}}
+              @bgcolor={{get (get this.styles style.name) "bgcolor"}}
+              @cornerSquare={{get (get this.styles style.name) "cornerSquare"}}
+              @cornerDot={{get (get this.styles style.name) "cornerDot"}}
+              @colorStops0={{get (get this.styles style.name) "colorStops0"}}
+              @colorStops1={{get (get this.styles style.name) "colorStops1"}}
+              @image_type={{"canvas"}}
+              @height={{140}}
+                @width={{140}}
+            />
+          </button>
+        {{/each}}
+
+      </div>
+    </div>
+    <div class="space-y-2">
+      <label class="block font-semibold">QR Code:</label>
+        <QrCodeGenerator
+          @data={{this.data}} 
+          @image={{this.image}}
+          @dotcolor={{this.dotcolor}} 
+          @type={{this.type}} 
+          @bgcolor={{this.bgcolor}} 
+          @cornerSquare={{this.cornerSquare}} 
+          @cornerDot={{this.cornerDot}} 
+          @colorStops0={{this.colorStops0}} 
+          @colorStops1={{this.colorStops1}}
+            @height={{500}}
+            @width={{500}}
+        />
+        
+    </div>
+  </div>
+</div>
