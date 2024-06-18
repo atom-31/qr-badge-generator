@@ -2,7 +2,12 @@
 
 module.exports = function(deployTarget) {
   let ENV = {
-    build: {}
+    build: {},
+    git: {
+      repo: 'git@github.com:atom-31/qr-badge-generator.git',
+      branch: 'gh-pages',
+      worktreePath: '/tmp/deploy'
+    }
     // include other plugin configuration that applies to all deploy targets here
   };
 

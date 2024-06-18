@@ -1,0 +1,34 @@
+{
+    "style1": {
+      "selectedStyle": "style1",
+      "type": "rounded",
+      "dotcolor": "#39C0FE",
+      "bgcolor": "#FFFFFF",
+      "cornerSquare": "extra-rounded",
+      "cornerDot": "extra-rounded",
+      "colorStops0": "#39C0FE",
+      "colorStops1": "#39C0FE"
+    },
+    "style2": {
+      "selectedStyle": "style2",
+      "type": "dots",
+      "dotcolor": "#E62622",
+      "bgcolor": "#FFFFFF",
+      "cornerSquare": "",
+      "cornerDot": "",
+      "colorStops0": "#E62622",
+      "colorStops1": "#FF5733"
+    },
+    "style3": {
+      "selectedStyle": "style3",
+      "type": "square",
+      "dotcolor": "#000000",
+      "bgcolor": "#FFFFFF",
+      "cornerSquare": "",
+      "cornerDot": "",
+      "colorStops0": "#000000",
+      "colorStops1": "#000000"
+    }
+}
+
+
