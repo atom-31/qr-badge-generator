@@ -4,7 +4,7 @@ module.exports = function (environment) {
   const ENV = {
     modulePrefix: 'qr-app',
     environment,
-    rootURL: 'qr-badge-generator',
+    rootURL: '/qr-badge-generator/',
     locationType: 'hash',
     EmberENV: {
       EXTEND_PROTOTYPES: false,

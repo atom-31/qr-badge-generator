@@ -74,7 +74,7 @@ export default class IndexController extends Controller {
 
   async loadStyles() {
     try {
-      let response = await fetch('/styles.json');
+      let response = await fetch('assets/styles.json');
       let styledata = await response.json();
       this.styles = styledata;
       this.applyStyle(this.selectedStyle);
