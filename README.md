@@ -1,4 +1,4 @@
-# Qr-Badge-Generator
+# QR Badge Generator
 
 Dynamic Client Side QR Badge Generator built upon [qr-code-styling](https://github.com/kozakdenys/qr-code-styling) library
 
