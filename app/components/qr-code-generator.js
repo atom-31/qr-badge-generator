@@ -29,8 +29,8 @@ export default class QrCodeGeneratorComponent extends Component {
         color: this.args.dotcolor || '#000000',
         type: this.args.type || 'square',
         gradient: {
-          type: 'linear',
-          rotation: 0,
+          type: this.args.gradient_type || 'linear',
+          rotation: this.args.rotation || 0,
           colorStops: [
             { offset: 0, color: this.args.colorStops0 || '#000000' },
             { offset: 1, color: this.args.colorStops1 || '#000000' },
@@ -88,8 +88,8 @@ export default class QrCodeGeneratorComponent extends Component {
           color: this.args.dotcolor,
           type: this.args.type,
           gradient: {
-            type: 'linear',
-            rotation: 0,
+            type: this.args.gradient_type,
+            rotation: this.args.rotation,
             colorStops: [
               { offset: 0, color: this.args.colorStops0 },
               { offset: 1, color: this.args.colorStops1 },

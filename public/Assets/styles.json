@@ -4,8 +4,9 @@
       "type": "rounded",
       "dotcolor": "#39C0FE",
       "bgcolor": "#FFFFFF",
+      "gradient_type": "radial",
       "cornerSquare": "extra-rounded",
-      "cornerDot": "extra-rounded",
+      "cornerDot": "dot",
       "colorStops0": "#39C0FE",
       "colorStops1": "#39C0FE"
     },
@@ -14,6 +15,7 @@
       "type": "dots",
       "dotcolor": "#E62622",
       "bgcolor": "#FFFFFF",
+      "gradient_type": "",
       "cornerSquare": "",
       "cornerDot": "",
       "colorStops0": "#E62622",
@@ -26,6 +28,7 @@
       "bgcolor": "#FFFFFF",
       "cornerSquare": "",
       "cornerDot": "",
+      "gradient_type": "",
       "colorStops0": "#000000",
       "colorStops1": "#000000"
     }

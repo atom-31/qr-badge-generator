@@ -11,12 +11,20 @@ export default class IndexController extends Controller {
   @tracked type = 'rounded';
   @tracked bgcolor = '#FFFFFF';
   @tracked cornerSquare = 'extra-rounded';
-  @tracked cornerDot = 'extra-rounded';
+  @tracked cornerDot = '';
   @tracked colorStops0 = '#39C0FE';
   @tracked colorStops1 = '#39C0FE';
   @tracked height = 500;
   @tracked width = 500;
   @tracked image_type = 'svg';
+  @tracked gradient_type = 'linear';
+  @tracked rotation = 0;
+
+  values = {
+    DotMenu: ['rounded', 'dots', 'classy', 'classy-rounded', 'square', 'extra-rounded', ""],
+    CornerSquare: ['dot', 'square', 'extra-rounded',""],
+    CornerDot: ['dot', 'square',""],
+  };
 
   styleList = [
     { name: 'style1', label: 'Style 1', image: 'assets/images/style1.png' },
@@ -38,6 +46,12 @@ export default class IndexController extends Controller {
     this.updateProperties();
   }
 
+@action handleBackgroundColorChange(event) {
+    const bgcolor = event.target.value;
+    this.bgcolor = bgcolor;
+    this.updateProperties();
+  }
+
   @action
   handleGradientZero(event) {
     const color = event.target.value;
@@ -49,6 +63,34 @@ export default class IndexController extends Controller {
   handleGradientOne(event) {
     const color = event.target.value;
     this.colorStops1 = color;
+    this.updateProperties();
+  }
+
+  @action
+  hanldeCornerSquareChange(cornerSquare) {
+    this.cornerSquare = cornerSquare;
+    this.updateProperties();
+  }
+
+  @action
+  handleCornerDotChange(cornerDot) {
+    this.cornerDot = cornerDot;
+    this.updateProperties();
+  }
+  @action
+  handleGradientToggle(event) {
+    this.gradient_type = event.target.checked ? 'radial' : 'linear';
+    this.updateProperties();
+  }
+
+  @action
+    handleRotationChange(event) {
+    this.rotation = event.target.value;
+    this.updateProperties();
+    }
+  @action
+  handleDotType(newDotType) {
+    this.type = newDotType;
     this.updateProperties();
   }
 
@@ -99,6 +141,7 @@ export default class IndexController extends Controller {
       this.cornerDot = style.cornerDot;
       this.colorStops0 = style.colorStops0;
       this.colorStops1 = style.colorStops1;
+      this.gradient_type = style.gradient_type;
       this.updateProperties();
     } else {
       console.error('Style not found:', styleName);
@@ -118,5 +161,24 @@ export default class IndexController extends Controller {
     this.height = `${this.height}`;
     this.width = `${this.width}`;
     this.image_type = `${this.image_type}`;
+    this.gradient_type = `${this.gradient_type}`;
+  }
+
+  @action
+  setupDropdown(element) {
+    const button = element.querySelector('#dropdownDefaultButton');
+    const dropdown = element.querySelector('#dropdown');
+
+    button.addEventListener('click', () => {
+      dropdown.classList.toggle('hidden');
+    });
+
+    document.addEventListener('click', (event) => {
+      if (!element.contains(event.target)) {
+        dropdown.classList.add('hidden');
+      }
+    });
   }
 }
+
+
